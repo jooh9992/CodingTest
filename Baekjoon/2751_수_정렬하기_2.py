@@ -3,11 +3,13 @@ input = sys.stdin.readline
 
 n = int(input())
 
-num = []
+num = [0]*10001
 
 for i in range(n):
-    num.append(int(input()))
+    a = int(input())
+    num[a] += 1
 
-num.sort()
-for i in range(n):
-    print(num[i])
+for i in range(10001):
+    if num[a] != 0:
+        for j in range(num[i]):
+            print(i)
