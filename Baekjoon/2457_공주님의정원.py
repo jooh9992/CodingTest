@@ -37,3 +37,40 @@ if target <1201:
     print(0)
 else:
     print(count)
+
+#23/09/11 다시풀기
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+arr = []
+count = 0
+
+for _ in range(N):
+    h, m, h1, m1 = map(int, input().split())
+    arr.append([h*100+m, h1*100+m1])
+
+arr.sort()
+
+end = 0
+target = 301
+
+while arr:
+    if target >= 1201 or target < arr[0][0]:
+        break
+
+    for _ in range(len(arr)):
+        if target >= arr[0][0]:
+            if end <= arr[0][1]:
+                end = arr[0][1]
+
+            arr.remove(arr[0])
+        else:
+            break
+    target = end
+    count +=1
+
+if target < 1201:
+    print(0)
+else:
+    print(count)
